@@ -1,4 +1,4 @@
-package dev.gad.backend;
+package dev.gad.utils;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
