@@ -1,0 +1,9 @@
+{
+  "engines": {
+    "node": ">=16.20.0",
+    "npm": ">=8.19.4"
+  },
+  "gitHooks": {
+    "commit-msg": "node scripts/commitMessage.js"
+  }
+}
