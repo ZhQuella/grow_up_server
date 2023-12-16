@@ -3,10 +3,12 @@ plugins {
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
 	id 'checkstyle'
+	id 'io.freefair.lombok' version '5.3.0'
 }
 
 group = 'dev.gad'
 version = '0.0.1-SNAPSHOT'
+apply plugin: 'io.freefair.lombok'
 
 java {
 	sourceCompatibility = '21'
@@ -36,6 +38,8 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 	checkstyle 'com.puppycrawl.tools:checkstyle:10.3.1'
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
 checkstyle {
@@ -52,6 +56,8 @@ checkstyle {
 tasks.withType(JavaCompile) {
 	options.fork = true
 	options.forkOptions.jvmArgs += ["-Xmx512m", "-Dfile.encoding=UTF-8"]
+	options.forkOptions.jvmArgs += ["--add-opens", "jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"]
+	options.forkOptions.jvmArgs += ["--add-opens", "jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED"]
 }
 
 tasks.named('test') {

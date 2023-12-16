@@ -7,7 +7,7 @@ import java.util.Map;
  * @author LIANGQI
  * @version 1.0
  * @Desc
- * @date 2023/12/16 15:44
+ * @time 2023/12/16 15:44
  */
 
 public class LocalLRUCache <K, V> extends LinkedHashMap<K, V> {
