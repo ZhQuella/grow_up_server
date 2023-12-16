@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'checkstyle'
 }
 
 group = 'dev.gad'
@@ -9,6 +10,9 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '21'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
 }
 
 configurations {
@@ -31,6 +35,23 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	checkstyle 'com.puppycrawl.tools:checkstyle:10.3.1'
+}
+
+checkstyle {
+	// 配置Checkstyle规则
+	configFile = file("${rootDir}/scripts/checkstyle.xml")
+
+	// 配置需要检查的源代码目录
+	sourceSets = [sourceSets.main]
+
+	// 配置Checkstyle任务执行时的编码设置
+	toolVersion = "10.3.1"
+}
+
+tasks.withType(JavaCompile) {
+	options.fork = true
+	options.forkOptions.jvmArgs += ["-Xmx512m", "-Dfile.encoding=UTF-8"]
 }
 
 tasks.named('test') {
