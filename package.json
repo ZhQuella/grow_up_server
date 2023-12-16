@@ -1,12 +1,24 @@
 {
-  "engines": {
-    "node": ">=16.20.0",
-    "npm": ">=8.19.4"
-  },
-  "gitHooks": {
-    "commit-msg": "node scripts/commitMessage.js"
-  },
-  "devDependencies": {
+  "name": "grow_up_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
     "husky": "^8.0.3"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhQuella/grow_up_server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhQuella/grow_up_server/issues"
+  },
+  "homepage": "https://github.com/ZhQuella/grow_up_server#readme"
 }
