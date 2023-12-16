@@ -5,5 +5,8 @@
   },
   "gitHooks": {
     "commit-msg": "node scripts/commitMessage.js"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
