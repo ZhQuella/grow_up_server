@@ -37,11 +37,9 @@ public class BigDecimalJsonSerializer extends JsonSerializer<BigDecimal> {
         if(!FORMAT_VALUE_CACHE.containsKey(cacheKey)) {
             Field[] declaredFields = currentClass.getDeclaredFields();
             DecimalField decimalFiled = null;
-            if (declaredFields != null && declaredFields.length > 0) {
-                for (Field declaredField : declaredFields) {
-                    if (declaredField.getName().equals(filedName)) {
-                        decimalFiled = declaredField.getAnnotation(DecimalField.class);
-                    }
+            for (Field declaredField : declaredFields) {
+                if (declaredField.getName().equals(filedName)) {
+                    decimalFiled = declaredField.getAnnotation(DecimalField.class);
                 }
             }
             if(decimalFiled == null) {
