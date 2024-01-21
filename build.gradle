@@ -38,8 +38,11 @@ dependencies {
 	checkstyle 'com.puppycrawl.tools:checkstyle:10.3.1'
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
-	implementation("com.mybatis-flex:mybatis-flex-spring-boot-starter:1.7.7")
+	implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.7.7")
 	annotationProcessor("com.mybatis-flex:mybatis-flex-processor:1.7.7")
+	implementation 'com.mybatis-flex:mybatis-flex-core:1.7.7'
+	implementation 'com.mybatis-flex:mybatis-flex-spring:1.7.7'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 }
 
 checkstyle {
